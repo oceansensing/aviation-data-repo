@@ -11,9 +11,12 @@ The world's airports, heliports, seaplane bases and balloonports from OurAirport
 
 OurAirports (ourairports.com): `airports.csv`, `runways.csv` and `airport-frequencies.csv`, **read from the GitHub copy of its downloads** (davidmegginson.github.io/ourairports-data, refreshed daily at 01:53 UTC). **Its terms were read before a line was written** (2026-10-20): all of its data is released to the public domain and comes with no guarantee of accuracy or fitness for use; credit is welcome and not required, and the downloads' repository carries the Unlicense. ourairports.com itself answered HTTP 500 that night and its data page listed `airports.csv` at 0 bytes, which is why the GitHub copy is read and a short or empty file is refused.
 
+## 2026-10-20: the first run, and the schedule
+
+The first dispatched run (`39397791578`) was cancelled at its R2 job's fifteen minutes, its 56,491 tiles going up ten at a time; the site's R2 publish has sent 64 at a time since, and the job has an hour. The second (`39402269318`, 09:39 UTC on) was green: 72,684 open airports, 56,491 tiles in `land/airports/`, R2's alone. The schedule set then: daily at 03:17 UTC, the step reading upstream each week.
+
 ## Open
 
-1. The first dispatched run, read: the product fresh, `airports.json` and `land/airports/` on R2 alone.
-2. A second run the next day: not due, the same version, nothing uploaded.
-3. Then the daily schedule.
-4. A month of runs read: the budget against the source's real lateness.
+1. A second run the next day: not due, the same version, nothing uploaded.
+2. Then the daily schedule.
+3. A month of runs read: the budget against the source's real lateness.
