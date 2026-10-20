@@ -1,0 +1,41 @@
+# What this repository publishes: the world's airports, heliports, seaplane bases and balloonports from
+# OurAirports (public domain), the closed ones left out — every record in `airports.json`, and the same
+# records as a pyramid of Mapbox vector tiles beside it, `land/airports/` (an index and its versioned
+# tiles, zooms 2 to 10). The fetcher is the site's `scripts/fetch-airports.py`, whose docstring carries
+# the measurements; the tiles are written by the site's `scripts/point_tiles.py`.
+#
+# **To the second host alone** (`r2_only`, the site pipeline's D13, its note of 2026-10-09): every file
+# of the product is published to Cloudflare R2 and not to Pages, which carries the status alone; the
+# root stays on the `published` branch, where the next run seeds from it. `trees` names the folder the
+# product writes beside its root (the orchestrator's, 2026-10-20), so it goes to R2 with it.
+#
+# **The step runs every run; the source is read weekly.** A tree is never banked, so the tiles are
+# made again from the published root on every run, whether the workflow's cache restored them or
+# not, and the fetcher reads the source itself only once its
+# root is a week old (`EVERY_HOURS`, 166): the source changes daily, and a changed set is a new version
+# of every tile.
+#
+# **The budget is the source's lateness, the week, and a missed run.** Measured 2026-10-20: the source's
+# last hundred updates a day apart at 01:53 UTC, the newest then 100 hours old; 100 + 166 + 24 is 290
+# hours, so 300.
+
+[contract]
+check = ["node", "scripts/test-schema.mjs"]
+roots = ["node", "scripts/test-schema.mjs", "--roots"]
+
+[defaults]
+timeout_minutes = 20
+
+[steps.airports]
+cmd = ["python3", "scripts/fetch-airports.py", "--only=airports"]
+lane = "davidmegginson.github.io"
+
+[products.airports]
+title = "Airports, heliports and seaplane bases of the world, with their runways and frequencies (OurAirports)"
+step = "airports"
+roots = ["airports.json"]
+writes = ["airports.json"]
+namespace = ["python3", "scripts/fetch-airports.py", "--namespace", "--only=airports"]
+max_age_hours = 300
+r2_only = true
+trees = ["land/airports"]
