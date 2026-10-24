@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "product": "airports",
+ "title": "Airports, heliports and seaplane bases of the world, with their runways and frequencies (OurAirports)",
+ "fate": "fresh",
+ "reason": null,
+ "checked": "2026-10-24T03:33:21Z",
+ "updated": "2026-10-21T20:01:39Z",
+ "hour": "2026-10-16T01:54:04Z",
+ "modelRun": null,
+ "source": "OurAirports",
+ "hours": [
+  "2026-10-16T01:54:04Z"
+ ],
+ "files": {
+  "airports.json": {
+   "bytes": 16262287,
+   "sha256": "3f405b37ba2ba0bd71914065965d1ba5e98f92430a15d2731134f0c481f77834"
+  }
+ },
+ "trees": {
+  "land/airports": "6e6300a48fa8"
+ }
+}
