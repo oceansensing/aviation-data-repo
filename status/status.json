@@ -1,0 +1,38 @@
+{
+ "schema": 2,
+ "contract": 1,
+ "generated": "2026-11-07T03:22:06Z",
+ "mode": "full",
+ "run": {
+  "id": "42333623099",
+  "url": "https://github.com/oceansensing/aviation-data-repo/actions/runs/42333623099"
+ },
+ "schedule": {
+  "crons": [
+   "17 3 * * *"
+  ],
+  "longestGapHours": 24.0
+ },
+ "products": {
+  "airports": {
+   "title": "Airports, heliports and seaplane bases of the world, with their runways and frequencies (OurAirports)",
+   "roots": [
+    "airports.json"
+   ],
+   "fate": "fresh",
+   "reason": null,
+   "checked": "2026-11-07T03:22:06Z",
+   "updated": "2026-11-05T03:24:24Z",
+   "hour": "2026-11-05T02:54:20Z",
+   "modelRun": null,
+   "source": "OurAirports",
+   "hours": [
+    "2026-11-05T02:54:20Z"
+   ],
+   "stale": false,
+   "staleCause": null,
+   "ageHours": 48.46,
+   "nearestOffsetHours": 48.46
+  }
+ }
+}
