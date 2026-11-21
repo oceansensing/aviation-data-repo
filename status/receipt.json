@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "generated": "2026-11-21T12:09:47Z",
+ "mode": "full",
+ "fates": {
+  "airports": "fresh",
+  "special-use-airspace": "fresh",
+  "military-training-routes": "fresh"
+ },
+ "reasons": {},
+ "built": {},
+ "withheld": {},
+ "deploy": true,
+ "notes": [],
+ "behind": [],
+ "tile_keys": {}
+}

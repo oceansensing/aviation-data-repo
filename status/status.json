@@ -1,0 +1,78 @@
+{
+ "schema": 2,
+ "contract": 1,
+ "generated": "2026-11-21T12:09:47Z",
+ "mode": "full",
+ "run": {
+  "id": "44902393458",
+  "url": "https://github.com/oceansensing/aviation-data-repo/actions/runs/44902393458"
+ },
+ "schedule": {
+  "crons": [
+   "17 3 * * *"
+  ],
+  "longestGapHours": 24.0
+ },
+ "products": {
+  "airports": {
+   "title": "Airports, heliports and seaplane bases of the world, with their runways and frequencies (OurAirports)",
+   "roots": [
+    "airports.json"
+   ],
+   "fate": "fresh",
+   "reason": null,
+   "checked": "2026-11-21T12:09:47Z",
+   "updated": "2026-11-19T03:24:23Z",
+   "hour": "2026-11-19T02:53:53Z",
+   "modelRun": null,
+   "source": "OurAirports",
+   "hours": [
+    "2026-11-19T02:53:53Z"
+   ],
+   "stale": false,
+   "staleCause": null,
+   "ageHours": 57.27,
+   "nearestOffsetHours": 57.27
+  },
+  "special-use-airspace": {
+   "title": "Special-use airspace: restricted, prohibited, warning, alert and danger areas and military operations areas, each altitude band with its times of use and controlling agency (FAA)",
+   "roots": [
+    "special-use-airspace.json"
+   ],
+   "fate": "fresh",
+   "reason": null,
+   "checked": "2026-11-21T12:09:47Z",
+   "updated": "2026-11-21T12:09:47Z",
+   "hour": "2026-10-29T09:01:00Z",
+   "modelRun": null,
+   "source": "Federal Aviation Administration, Aeronautical Information Services",
+   "hours": [
+    "2026-10-29T09:01:00Z"
+   ],
+   "stale": false,
+   "staleCause": null,
+   "ageHours": 555.15,
+   "nearestOffsetHours": 555.15
+  },
+  "military-training-routes": {
+   "title": "Military training routes: IR, VR and SR routes' centerlines, widths and altitudes (FAA)",
+   "roots": [
+    "military-training-routes.json"
+   ],
+   "fate": "fresh",
+   "reason": null,
+   "checked": "2026-11-21T12:09:47Z",
+   "updated": "2026-11-21T12:09:47Z",
+   "hour": "2026-10-29T09:01:00Z",
+   "modelRun": null,
+   "source": "Federal Aviation Administration, Aeronautical Information Services",
+   "hours": [
+    "2026-10-29T09:01:00Z"
+   ],
+   "stale": false,
+   "staleCause": null,
+   "ageHours": 555.15,
+   "nearestOffsetHours": 555.15
+  }
+ }
+}

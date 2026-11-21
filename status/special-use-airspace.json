@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "product": "special-use-airspace",
+ "title": "Special-use airspace: restricted, prohibited, warning, alert and danger areas and military operations areas, each altitude band with its times of use and controlling agency (FAA)",
+ "fate": "fresh",
+ "reason": null,
+ "checked": "2026-11-21T12:09:47Z",
+ "updated": "2026-11-21T12:09:47Z",
+ "hour": "2026-10-29T09:01:00Z",
+ "modelRun": null,
+ "source": "Federal Aviation Administration, Aeronautical Information Services",
+ "hours": [
+  "2026-10-29T09:01:00Z"
+ ],
+ "files": {
+  "special-use-airspace.json": {
+   "bytes": 2638171,
+   "sha256": "9ed8c01b9ce0233d39000d64094198d7eb26b03879a6e585260f9e89e297191f"
+  }
+ },
+ "trees": {
+  "land/special-use-airspace": "b8a433adaa88"
+ }
+}
