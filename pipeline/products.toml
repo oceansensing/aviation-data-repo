@@ -6,8 +6,8 @@
 #
 # **Since 2026-11-21, the FAA's special-use airspace and military training routes** (a U.S. Government
 # work, "for public use"), each a root of every record and its pyramid the same way: `special-use-airspace`,
-# every altitude band of every restricted, prohibited, warning, alert and danger area and military
-# operations area on the FAA's enroute charts, zooms 3 to 10; `military-training-routes`, every segment of
+# every altitude band of every United States restricted, prohibited, warning, alert and danger area and
+# military operations area on the FAA's enroute charts (another country's it carries, withheld), zooms 3 to 10; `military-training-routes`, every segment of
 # every IR, VR and SR route, zooms 4 to 9. The fetcher is the site's `scripts/fetch-airspace.py` (its
 # docstring carries the measurements); the tiles are written by the site's `scripts/land_tiles.py`.
 # **Read once a cycle**: the FAA republishes both every 56 days, and its ArcGIS items name the cycle

@@ -19,8 +19,9 @@ The first dispatched run (`39397791578`) was cancelled at its R2 job's fifteen m
 
 Two products joined (the owner's rulings of 2026-11-20 on the military layers: special-use airspace under both
 Military and Aviation, one layer, so its data lives here once): **`special-use-airspace`** (the FAA's ADDS
-`Special_Use_Airspace`, 1,545 altitude bands — restricted 555, MOA 720, warning 212, alert 39, prohibited 14, danger
-5 — a pyramid of 11,002 tiles, 5.8 MB, zooms 3 to 10) and **`military-training-routes`** (`MTRSegment`, 4,194
+`Special_Use_Airspace`, 1,539 altitude bands of the United States' areas — restricted 555, MOA 720, warning 212,
+alert 39, prohibited 13 — a pyramid of 10,983 tiles, 5.8 MB, zooms 3 to 10; the Bahamas' five danger areas and one
+prohibited area, which the FAA carries for its charts' borders and calls no official source, withheld and named) and **`military-training-routes`** (`MTRSegment`, 4,194
 segments of 427 routes — IR 2,561, VR 1,102, SR 531 segments — 2,221 tiles, 1.0 MB, zooms 4 to 9), each read once a
 56-day cycle (the cycle of 2026-10-29 09:01 UTC to 2026-12-24 09:01 UTC on the first read), measured by the site's
 `scripts/fetch-airspace.py` on 2026-11-21. Rehearsed with the published branch as the last publish (a copy of the site's
@@ -34,5 +35,5 @@ numpy for the polygons) and carries the two trees in its cache as the airports' 
 1. A second run the next day: not due, the same version, nothing uploaded.
 2. Then the daily schedule.
 3. A month of runs read: the budget against the source's real lateness.
-4. The first dispatched run with the FAA's products (`due=special-use-airspace,military-training-routes` is not needed: no root is published, so both are read), read: two products fresh, 13,223 new tiles on R2, the airports' version unchanged.
+4. The first dispatched run with the FAA's products (`due=special-use-airspace,military-training-routes` is not needed: no root is published, so both are read), read: two products fresh, 13,204 new tiles on R2, the airports' version unchanged.
 5. 2026-12-24 09:01 UTC, the next cycle: the run after it reads the item, then the layers, once.

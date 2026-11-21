@@ -13,8 +13,9 @@ got wrong and the shared doc doctrine.
 The world's airports, heliports, seaplane bases and balloonports from OurAirports, the closed ones left out: **`airports.json`**, every record — its ident, kind, name, elevation in feet, IATA and ICAO codes, municipality, country and region, whether it has scheduled service, each open runway (`<le>/<he> <length> ft <surface>`, lighted or not, the longest first) and at most eight frequencies (`<type> <MHz>`, the weather's and the tower's first) — and **`land/airports/`**, the same records as a pyramid of Mapbox vector tiles (uncompressed, extent 4096, one point layer `airports`): large airports from zoom 2, medium from 5, small from 8, heliports, seaplane bases and balloonports from 10, every point kept at deeper zooms, to zoom 10; its `index.json` names the version (the tiles' own hash) and every tile to zoom 8. R2's alone.
 
 **`special-use-airspace.json`** (since 2026-11-21): every altitude band of every special-use airspace area on the
-FAA's enroute charts — restricted, prohibited, warning, alert and danger areas and military operations areas, 1,545
-records on 2026-11-21 — each with its name, its kind, its floor and ceiling as the charts write them (`SFC`,
+FAA's enroute charts — restricted, prohibited, warning and alert areas and military operations areas, 1,539
+records on 2026-11-21 (another country's areas the FAA carries for its charts' borders — the Bahamas' six —
+withheld, as the FAA says they are no official source) — each with its name, its kind, its floor and ceiling as the charts write them (`SFC`,
 `1,500 ft AGL`, `4,000 ft MSL`, `FL 180`, `unlimited`), its times of use, its controlling agency and the FAA's
 remarks, and the FAA's own codes beside them; **`land/special-use-airspace/`**, the same as a pyramid of vector tiles
 (one polygon layer `airspace`, zooms 3 to 10). **`military-training-routes.json`**: every segment of every IR, VR and
