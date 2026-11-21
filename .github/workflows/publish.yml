@@ -9,7 +9,8 @@
 # watchdog names an origin with no schedule on sight.
 #
 # **A dispatch's `due` names steps whose source is read now** whatever their
-# interval (the airports' source is read weekly): `due=airports`.
+# interval (the airports' source is read weekly, the FAA's airspace once a
+# 56-day cycle): `due=airports`, `due=special-use-airspace,military-training-routes`.
 #
 # Needs, from the owner: `PIPELINES_SSH_KEY` (this repository's read-only
 # deploy key on oceansensing.github.io) and the organization's R2_* secrets.
@@ -77,13 +78,23 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
+      - name: Install what the fetchers need
+        run: pip install --no-cache-dir -r site/scripts/requirements-lands.txt
       - name: Unit-test the orchestrator
         working-directory: site
         run: python3 pipeline/test_orchestrate.py
       - name: Self-test fetch-airports.py
         run: python3 site/scripts/fetch-airports.py --self-test
+      - name: Self-test fetch-airspace.py
+        run: python3 site/scripts/fetch-airspace.py --self-test
+      - name: Self-test fetch-maritime.py
+        run: python3 site/scripts/fetch-maritime.py --self-test
       - name: Self-test point_tiles.py
         run: python3 site/scripts/point_tiles.py --self-test
+      - name: Self-test land_tiles.py
+        run: python3 site/scripts/land_tiles.py --self-test
+      - name: Self-test mvt.py
+        run: python3 site/scripts/mvt.py --self-test
       - name: Seed the stage from the last publish
         env:
           PIPELINE_ROOT: ${{ github.workspace }}
@@ -102,6 +113,26 @@ jobs:
         with:
           path: site/public/map/land/airports
           key: land-airports-${{ steps.tree.outputs.version }}
+      # The FAA's two pyramids the same way (2026-11-21), each under the version its root names.
+      - name: The FAA's published pyramids' versions
+        id: trees
+        run: |
+          for p in special-use-airspace military-training-routes; do
+            v=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('version') or 'none')" published/map/$p.json 2>/dev/null || echo none)
+            echo "${p//-/_}=$v" >> "$GITHUB_OUTPUT"
+          done
+      - name: Restore the special-use-airspace tiles
+        id: special-use-airspace-tiles
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: site/public/map/land/special-use-airspace
+          key: land-special-use-airspace-${{ steps.trees.outputs.special_use_airspace }}
+      - name: Restore the military-training-routes tiles
+        id: military-training-routes-tiles
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: site/public/map/land/military-training-routes
+          key: land-military-training-routes-${{ steps.trees.outputs.military_training_routes }}
       - name: Plan the run
         id: plan
         env:
@@ -128,6 +159,26 @@ jobs:
         with:
           path: site/public/map/land/airports
           key: land-airports-${{ steps.set.outputs.version }}
+      - name: Name the FAA's sets on the stage
+        id: sets
+        if: always()
+        run: |
+          for p in special-use-airspace military-training-routes; do
+            v=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('version') or 'none')" site/public/map/land/$p/index.json 2>/dev/null || echo none)
+            echo "${p//-/_}=$v" >> "$GITHUB_OUTPUT"
+          done
+      - name: Save the special-use-airspace tiles
+        if: steps.run.outputs.deploy == 'true' && steps.sets.outputs.special_use_airspace != 'none' && (steps.sets.outputs.special_use_airspace != steps.trees.outputs.special_use_airspace || steps.special-use-airspace-tiles.outputs.cache-hit != 'true')
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: site/public/map/land/special-use-airspace
+          key: land-special-use-airspace-${{ steps.sets.outputs.special_use_airspace }}
+      - name: Save the military-training-routes tiles
+        if: steps.run.outputs.deploy == 'true' && steps.sets.outputs.military_training_routes != 'none' && (steps.sets.outputs.military_training_routes != steps.trees.outputs.military_training_routes || steps.military-training-routes-tiles.outputs.cache-hit != 'true')
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: site/public/map/land/military-training-routes
+          key: land-military-training-routes-${{ steps.sets.outputs.military_training_routes }}
       - name: Upload the site
         if: steps.run.outputs.deploy == 'true'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
