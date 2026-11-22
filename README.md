@@ -24,8 +24,11 @@ miles, its floor and ceiling and its route (`IR-109`); **`land/military-training
 zooms 4 to 9, one feature a route to zoom 7). **Each root says plainly that whether an area or a route is active is
 in the NOTAMs, not in the file**, and carries the FAA's own words. R2's alone.
 
-These products are published **operationally but not drawn on the website's map**; the map's status
-line still reports them when they fall behind, which is how their health stays visible.
+These products are published **operationally but not drawn on the
+website's map**. R2 alone carries them, so this repository's Pages status names none of
+them: the map's status line and the site's watchdog see only whether the
+origin publishes. Their fates are in the status on R2 and on the
+`published` branch.
 
 ## Where the data comes from
 
@@ -46,9 +49,9 @@ workflow, and nothing else executable. Each run publishes to GitHub Pages and
 to Cloudflare R2 from one build. Related repositories: `facilities-data-repo` (the other land points, made the same way),
 `maritime-data-repo` and `fisheries-data-repo` (polygons and lines on the same machinery).
 
-**Which document gets what, and what "update docs" means across all
-thirty-one repositories, is the doctrine block at the top of `CLAUDE.md`**: the
-same text in all thirty-one, held equal by the site's `check:docs`.
+**Which document gets what, and what "update docs" means across every
+repository of this project, is the doctrine block at the top of `CLAUDE.md`**: the
+same text in each, held equal by the site's `check:docs`.
 
 ## Structure
 

@@ -1,7 +1,7 @@
 # aviation-data-repo: the founding plan and running record
 
 The world's **airports**, from OurAirports. Created on GitHub by the owner and given its documents by the site's
-`pipeline/scaffold/new-origin.py`. **Nothing is published yet.**
+`pipeline/scaffold/new-origin.py`. **Publishing since 2026-10-20**, the FAA's two products since 2026-11-21.
 
 ## What it is for
 
@@ -17,8 +17,7 @@ The first dispatched run (`39397791578`) was cancelled at its R2 job's fifteen m
 
 ## 2026-11-21: the FAA's special-use airspace and military training routes
 
-Two products joined (the owner's rulings of 2026-11-20 on the military layers: special-use airspace under both
-Military and Aviation, one layer, so its data lives here once): **`special-use-airspace`** (the FAA's ADDS
+Two products joined (D2: military and aviation data both, so it lives here once): **`special-use-airspace`** (the FAA's ADDS
 `Special_Use_Airspace`, 1,539 altitude bands of the United States' areas — restricted 555, MOA 720, warning 212,
 alert 39, prohibited 13 — a pyramid of 10,983 tiles, 5.8 MB, zooms 3 to 10; the Bahamas' five danger areas and one
 prohibited area, which the FAA carries for its charts' borders and calls no official source, withheld and named) and **`military-training-routes`** (`MTRSegment`, 4,194
@@ -33,7 +32,7 @@ numpy for the polygons) and carries the two trees in its cache as the airports' 
 ## Open
 
 1. A second run the next day: not due, the same version, nothing uploaded.
-2. Then the daily schedule.
+2. ~~Then the daily schedule.~~ On since October 2026.
 3. A month of runs read: the budget against the source's real lateness.
-4. The first dispatched run with the FAA's products (`due=special-use-airspace,military-training-routes` is not needed: no root is published, so both are read), read: two products fresh, 13,204 new tiles on R2, the airports' version unchanged.
+4. ~~The first dispatched run with the FAA's products~~ — 2026-11-21, run `44902393458`, green; both publishing since.
 5. 2026-12-24 09:01 UTC, the next cycle: the run after it reads the item, then the layers, once.

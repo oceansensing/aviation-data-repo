@@ -14,8 +14,8 @@ The world's airports get a repository of their own (2026-10-20) and **publish to
 
 ## D2 — 2026-11-21 — The FAA's special-use airspace and training routes live here, once, read once a cycle
 
-The FAA's special-use airspace and military training routes join this repository (2026-11-21): the owner ruled the
-special-use airspace one layer under both Military and Aviation, so its data lives once, here, beside the airports,
+The FAA's special-use airspace and military training routes join this repository (2026-11-21): the special-use
+airspace is both a military and an aviation product, so its data lives once, here, beside the airports,
 and the training routes with it. Both R2's alone. **Read once a 56-day charting cycle**, the cycle's first moment the
 products' hour: the FAA's ADDS is asked for a layer only once the published cycle has ended and its item names a new
 one, since ADDS refuses heavier use. Every root says that whether an area or a route is active is in the NOTAMs.
