@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "product": "military-training-routes",
+ "title": "Military training routes: IR, VR and SR routes' centerlines, widths and altitudes (FAA)",
+ "fate": "fresh",
+ "reason": null,
+ "checked": "2026-11-28T03:25:12Z",
+ "updated": "2026-11-21T12:09:47Z",
+ "hour": "2026-10-29T09:01:00Z",
+ "modelRun": null,
+ "source": "Federal Aviation Administration, Aeronautical Information Services",
+ "hours": [
+  "2026-10-29T09:01:00Z"
+ ],
+ "files": {
+  "military-training-routes.json": {
+   "bytes": 1674889,
+   "sha256": "c181c4b3dc3d0a83301b281b1e62b25e9e917fbfa14f09cfc21518db386fd3e1"
+  }
+ },
+ "trees": {
+  "land/military-training-routes": "acffdeba3023"
+ }
+}
